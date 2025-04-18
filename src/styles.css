@@ -1,0 +1,371 @@
+/* === Global Styles === */
+/* Dynamic Background */
+body.day-mode::before {
+  background: linear-gradient(
+    -45deg,
+    #87ceeb,
+    #e0f7fa,
+    #ffffff,
+    #f5f5f5
+  ) !important;
+  animation: gradient 15s ease infinite;
+}
+
+body.night-mode::before {
+  background: linear-gradient(
+    -45deg,
+    #0f0f1a,
+    #1c1c2e,
+    #202035,
+    #0a0a1a
+  ) !important;
+  animation: gradient 15s ease infinite;
+}
+
+/* Day Mode Styles */
+body.day-mode {
+  color: #333;
+}
+
+body.day-mode .app {
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+}
+
+body.day-mode input {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+body.day-mode .weather-card {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+body.day-mode .detail-item {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.day-mode .detail-label {
+  color: #555;
+}
+
+body.day-mode .app-footer {
+  background: rgba(255, 255, 255, 0.7);
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: transparent;
+  color: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  text-align: center;
+  overflow-x: hidden;
+  flex-direction: column;
+  position: relative;
+}
+
+/* === Animated Background === */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-45deg, #0f0f1a, #1c1c2e, #202035, #0a0a1a);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  z-index: -1;
+}
+
+/* === App Container === */
+.app {
+  background: #1e1e2fd9;
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+/* === Header Styles === */
+.app-header {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #3fa9f5;
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  color: #a0a0c0;
+  margin-bottom: 5px;
+}
+
+.live-clock {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #3fa9f5;
+  font-weight: bold;
+  letter-spacing: 1px;
+  animation: pulse 2s infinite;
+}
+
+/* === Form Inputs === */
+input {
+  padding: 12px;
+  width: 100%;
+  max-width: 320px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  background-color: #2d2d44;
+  color: #fff;
+}
+
+/* === Button === */
+button {
+  padding: 12px 25px;
+  background: #3fa9f5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background: #2d8cd9;
+}
+
+/* === Weather Card === */
+.weather-card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.weather-card.day {
+  background: rgba(46, 64, 83, 0.8);
+}
+
+.weather-card.night {
+  background: rgba(11, 22, 34, 0.9);
+  box-shadow: 0 0 15px rgba(0, 119, 182, 0.3);
+}
+
+.weather-main {
+  margin: 20px 0;
+  text-align: center;
+}
+
+..weather-description {
+  font-size: 22px;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.emoji {
+  * Remove the top margin that was pushing it down */
+}
+.temperature {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.local-time {
+  font-size: 14px;
+  color: #3fa9f5;
+  margin-bottom: 10px;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.detail-label {
+  font-size: 14px;
+  color: #a0a0c0;
+  margin-bottom: 5px;
+}
+
+.detail-value {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* === Emoji Icon === */
+.emoji {
+  text-align: center;
+  font-size: 28px; 
+  margin-top: 0; 
+}
+
+/* === Error Message === */
+.error {
+  color: #ff7675;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* === App Container === */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+  padding: 20px;
+  padding-bottom: 100px;
+}
+
+/* === Footer Styles === */
+.app-footer {
+  position: absolute;
+  width: 100%;
+  padding: 20px 0;
+  background: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  margin-top: auto;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.app-footer a {
+  color: #3fa9f5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.app-footer a:hover {
+  color: #2d8cd9;
+  text-decoration: underline;
+}
+
+.footer-content {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* === Animations === */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+/* === Mobile/Tablet Responsive === */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app {
+    width: 100%;
+    max-width: 350px;
+    padding: 25px 20px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  input {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  button {
+    width: 70%;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .emoji {
+    font-size: 36px;
+  }
+
+  .weather-card {
+    padding: 15px;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .app-header p {
+    font-size: 1rem;
+  }
+
+  .live-clock {
+    font-size: 1rem;
+  }
+
+  .app-footer {
+    padding: 15px 0;
+  }
+}
