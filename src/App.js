@@ -150,6 +150,9 @@ export default function App() {
                   {weather.weather[0].main === "Thunderstorm" && "⛈️"}
                   {weather.weather[0].main === "Drizzle" && "🌦️"}
                   {weather.weather[0].main === "Mist" && "🌫️"}
+                  {weather.weather[0].main === "Haze" && "🌁"}
+                  {weather.weather[0].main === "Fog" && "🌁"}
+                  {weather.weather[0].main === "Tornado" && "🌪️"}
                 </span>
               </p>
               <p className="temperature">{Math.round(weather.main.temp)}°C</p>
